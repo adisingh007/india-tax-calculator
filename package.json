@@ -1,0 +1,15 @@
+{
+  "name": "taxy",
+  "version": "1.0.0",
+  "description": "This app calculates taxes in India!",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@personal:adisingh007/taxy.git"
+  },
+  "author": "Aditya Singh",
+  "license": "ISC"
+}
