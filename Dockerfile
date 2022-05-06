@@ -1,11 +1,11 @@
 FROM ubuntu
 
 RUN apt update -y
-RUN apt install nvm npm -y
+RUN apt install npm -y
 
-RUN nvm install lts/gallium
 COPY . /opt/taxy
 WORKDIR /opt/taxy
 RUN npm install
 
-ENTRYPOINT [ "npm", "run", "app" ]
+EXPOSE 8080
+CMD ["npm", "run", "app"]
