@@ -1,5 +1,7 @@
 import express from "express";
-import { attachRoutes } from "./app";
+import { getTaxyRoutes } from "./routes/taxy";
+import { getAppRoutes } from "./routes/app";
 
 export const server = express();
-attachRoutes(server);
+server.use("/", getTaxyRoutes());
+server.use("/", getAppRoutes());
