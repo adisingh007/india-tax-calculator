@@ -37,22 +37,24 @@ describe("Upon requesting for /getTaxAmount", () => {
     const taxySupertest = supertest(server);
     server.use("/", getTaxyRoutes());
 
-    test("should return 404 with unexpected regime name", async () => {
-        const regimeName = "unknown";
-        const response = await taxySupertest.get(`/getTaxAmount/${regimeName}/600000`);
-        expect(response.status).toBe(404);
-        expect(response.text).toBe(`No such regime ${regimeName}!`);
-    });
-
-    test("should return 404 with no regime name", async () => {
-        const response = await taxySupertest.get(`/getTaxAmount/600000`);
-        expect(response.status).toBe(404);
-    });
-
-    test("should return 404 with no amount", async () => {
-        const regimeName = "new";
-        const response = await taxySupertest.get(`/getTaxAmount/${regimeName}/`);
-        expect(response.status).toBe(404);
+    describe("error cases", () => {
+        test("should return 404 with unexpected regime name", async () => {
+            const regimeName = "unknown";
+            const response = await taxySupertest.get(`/getTaxAmount/${regimeName}/600000`);
+            expect(response.status).toBe(404);
+            expect(response.text).toBe(`No such regime ${regimeName}!`);
+        });
+    
+        test("should return 404 with no regime name", async () => {
+            const response = await taxySupertest.get(`/getTaxAmount/600000`);
+            expect(response.status).toBe(404);
+        });
+    
+        test("should return 404 with no amount", async () => {
+            const regimeName = "new";
+            const response = await taxySupertest.get(`/getTaxAmount/${regimeName}/`);
+            expect(response.status).toBe(404);
+        });
     });
 
     describe("as per new regime", () => {
