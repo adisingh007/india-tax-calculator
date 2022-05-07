@@ -1,5 +1,5 @@
 import { OLD_TAX_REGIME, NEW_TAX_REGIME } from "../../../src/constants";
-import { calculateTax } from "../../../src/taxCalculator/taxCalculator";
+import { calculateTax, quickTax } from "../../../src/taxCalculator/taxCalculator";
 
 describe("Tax is 0 in", () => {
   test('Old if income is less than 250000', () => {
@@ -261,6 +261,94 @@ describe("Tax is deducted", () => {
           "totalTaxesTillNow": 457500
         }
       ]
+    });
+  });
+});
+
+describe("Quick tax is 0 in", () => {
+  test('Old if income is less than 250000', () => {
+    expect(quickTax(OLD_TAX_REGIME, 125000)).toEqual({
+      incomeAfterTaxes: 125000,
+      totalPayableTax: 0,
+      incomeBeforeTaxes: 125000,
+      slab: {
+        gt: 0,
+        lte: 250000,
+        rateMultiplier: 0,
+        taxFromPrevSlab: 0,
+      },
+    });
+  });
+  
+  test("New regime if income is less than 250000", () => {
+    expect(quickTax(NEW_TAX_REGIME, 125000)).toEqual({
+      incomeAfterTaxes: 125000,
+      totalPayableTax: 0,
+      incomeBeforeTaxes: 125000,
+      slab: {
+        gt: 0,
+        lte: 250000,
+        rateMultiplier: 0,
+        taxFromPrevSlab: 0,
+      },
+    });
+  });
+});
+
+describe("Quick tax is deducted", () => {
+  test("7500 on 400000 income as per Old tax regime", () => {
+    expect(quickTax(OLD_TAX_REGIME, 400000)).toEqual({
+      incomeAfterTaxes: 392500,
+      totalPayableTax: 7500,
+      incomeBeforeTaxes: 400000,
+      slab: {
+        gt: 250000,
+        lte: 500000,
+        rateMultiplier: 0.05,
+        taxFromPrevSlab: 0
+      },
+    });
+  });
+
+  test("7500 on 400000 income as per New tax regime", () => {
+    expect(quickTax(NEW_TAX_REGIME, 400000)).toEqual({
+      incomeAfterTaxes: 392500,
+      totalPayableTax: 7500,
+      incomeBeforeTaxes: 400000,
+      slab: {
+        gt: 250000,
+        lte: 500000,
+        rateMultiplier: 0.05,
+        taxFromPrevSlab: 0
+      }
+    });
+  });
+
+  test("457500 on 2400000 income as per Old tax regime", () => {
+    expect(quickTax(OLD_TAX_REGIME, 2400000)).toEqual({
+      incomeBeforeTaxes: 2400000,
+      totalPayableTax: 532500,
+      incomeAfterTaxes: 1867500,
+      slab: {
+        gt: 1500000,
+        lte: Number.POSITIVE_INFINITY,
+        rateMultiplier: 0.3,
+        taxFromPrevSlab: 262500
+      }
+    });
+  });
+
+  test("457500 on 2400000 income as per New tax regime", () => {
+    expect(quickTax(NEW_TAX_REGIME, 2400000)).toEqual({
+      incomeBeforeTaxes: 2400000,
+      totalPayableTax: 457500,
+      incomeAfterTaxes: 1942500,
+      slab: {
+        gt: 1500000,
+        lte: Number.POSITIVE_INFINITY,
+        rateMultiplier: 0.3,
+        taxFromPrevSlab: 187500,
+      },
     });
   });
 });

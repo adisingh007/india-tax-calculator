@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { OLD_TAX_REGIME, NEW_TAX_REGIME } from "../constants";
-import { calculateTax } from "../taxCalculator/taxCalculator";
+import { calculateTax, quickTax } from "../taxCalculator/taxCalculator";
 
 
 export function getTaxyRoutes(): Router {
@@ -25,7 +25,11 @@ export function getTaxyRoutes(): Router {
         const regime = req?.params?.regime;
         const amount = req?.params?.amount;
         const taxRates = regime === "old" ? OLD_TAX_REGIME : NEW_TAX_REGIME;
-        res.send(calculateTax(taxRates, parseInt(amount)));
+        if (req?.query?.verbose && req.query.verbose === "true") {
+            res.send(calculateTax(taxRates, parseInt(amount)));
+        } else {
+            res.send(quickTax(taxRates, parseInt(amount)));
+        }
     });
 
     return router;

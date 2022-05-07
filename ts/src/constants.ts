@@ -1,4 +1,4 @@
-import { RegimeType } from "./taxCalculator/types";
+import { RegimeType, TaxSlabType } from "./taxCalculator/types";
 
 export const PORT = 8080;
 export const OLD_TAX_REGIME: RegimeType = {
@@ -92,4 +92,10 @@ export const NEW_TAX_REGIME: RegimeType = {
             taxFromPrevSlab: 187500,
         },
     ],
+};
+export const DEFAULT_SLAB: TaxSlabType = {
+    gt: Number.POSITIVE_INFINITY,
+    lte: Number.NEGATIVE_INFINITY,
+    rateMultiplier: 0.0,
+    taxFromPrevSlab: 0.0,
 };

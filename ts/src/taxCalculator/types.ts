@@ -21,3 +21,10 @@ export type SlabWiseTaxType = {
     incomeAfterTaxes: number,
     slabs: Array<ResultTaxSlabType>,
 };
+
+export type QuickTaxResponseType = {
+    incomeBeforeTaxes: number,
+    totalPayableTax: number,
+    incomeAfterTaxes: number,
+    slab: TaxSlabType,
+};
