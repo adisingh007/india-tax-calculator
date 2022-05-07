@@ -7,7 +7,8 @@
     "start": "node target/src/index.js",
     "test": "jest",
     "compile": "tsc",
-    "clean": "rimraf target"
+    "clean": "rimraf target",
+    "just-test": "npm run clean && npm run compile && npm test"
   },
   "repository": {
     "type": "git",
