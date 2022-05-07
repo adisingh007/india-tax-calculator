@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { OLD_TAX_REGIME, NEW_TAX_REGIME } from "../constants";
-import { calculateTax } from "../taxCalculator";
+import { calculateTax } from "../taxCalculator/taxCalculator";
 
 
 export function getTaxyRoutes(): Router {

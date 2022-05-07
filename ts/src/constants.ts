@@ -1,4 +1,4 @@
-import { RegimeType } from "./types";
+import { RegimeType } from "./taxCalculator/types";
 
 export const PORT = 8080;
 export const OLD_TAX_REGIME: RegimeType = {

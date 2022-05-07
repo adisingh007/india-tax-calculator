@@ -1,5 +1,5 @@
-import { OLD_TAX_REGIME, NEW_TAX_REGIME } from "../../src/constants";
-import { calculateTax } from "../../src/taxCalculator";
+import { OLD_TAX_REGIME, NEW_TAX_REGIME } from "../../../src/constants";
+import { calculateTax } from "../../../src/taxCalculator/taxCalculator";
 
 describe("Tax is 0 in", () => {
   test('Old if income is less than 250000', () => {
