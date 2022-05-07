@@ -12,7 +12,7 @@ WORKDIR /opt/taxy-temp
 RUN npm install
 RUN npm run clean
 RUN npm run compile
-RUN npm run test
+RUN npm test
 
 # Create another directory and copy the build files and package.json there
 RUN mkdir -p /opt/taxy/target
