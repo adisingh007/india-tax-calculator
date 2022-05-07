@@ -1,18 +1,25 @@
-This app calculates taxes in India! (Not considering deductions right now. Just flat tax!)  
+This app calculates taxes in India!  
+###### NOTE: Not considering deductions right now. Just flat tax!  
   
-To build, just run:  
-  
+BUILD:
+------
   
 Build the docker image: `docker build . -t taxy`  
-Run in detached mode: `docker run -d -p 8080:8080 --name taxy-container taxy`  
-You can also run in interactive mode: `docker run -it -p 8080:8080 --name taxy-container taxy`  
-  
-To test if the app is running, you can visit: `http://localhost:8080` on your browser!  
-  
-After running, you can refer swagger document for API at `Coming Soon`  
 
-You can stop the container: `docker stop taxy-container`  
-Then delete the container: `docker rm taxy-container`  
-You can then delete the image: `docker rmi taxy`  
+RUN:  
+----  
+1. Run in detached mode: `docker run -d -p 8080:8080 --name taxy-container taxy`  
+2. You can also run in interactive mode: `docker run -it -p 8080:8080 --name taxy-container taxy`  
   
+CHECK:  
+------  
+1. To test if the app is running, you can visit: <http://localhost:8080/> on your browser!  
+2. After running, you can refer swagger document for API at `Coming Soon`  
+  
+STOP:  
+-----  
+1. You can stop the container: `docker stop taxy-container`  
+2. Then delete the container: `docker rm taxy-container`  
+3. You can then delete the image: `docker rmi taxy`  
+    
 Enjoy 🙂  
