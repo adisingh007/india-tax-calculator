@@ -5,8 +5,8 @@ const server = app.listen(PORT, () => {
     console.log(`Server started at ${PORT}...`);
 });
 
-process.on('SIGINT', () => {
-    console.log("SIGINT received!");
+process.on('SIGTERM', () => {
+    console.log("SIGTERM received!");
     if (server) {
         console.log("Stopping server...");
         server.close();
