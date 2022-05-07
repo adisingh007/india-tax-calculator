@@ -1,15 +1,15 @@
 import { PORT } from "./constants";
-import { app } from "./app";
+import { server } from "./server";
 
-const server = app.listen(PORT, () => {
+const runningServer = server.listen(PORT, () => {
     console.log(`Server started at ${PORT}...`);
 });
 
 process.on('exit', () => {
     console.log("Exit signal received!");
-    if (server) {
+    if (runningServer) {
         console.log("Stopping server...");
-        server.close();
+        runningServer.close();
         console.log("Server stopped!");
     }
     console.log("Bye!");
