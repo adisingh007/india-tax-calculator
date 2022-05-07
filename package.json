@@ -4,7 +4,7 @@
   "description": "This app calculates taxes in India!",
   "main": "target/src/index.js",
   "scripts": {
-    "app": "node .",
+    "start": "node target/src/index.js",
     "test": "jest",
     "compile": "tsc",
     "clean": "rimraf target"

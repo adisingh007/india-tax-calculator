@@ -27,4 +27,4 @@ RUN rm -rf /opt/taxy-temp
 RUN npm install --only=prod
 
 # Ready to go
-CMD ["npm", "run", "app"]
+CMD ["npm", "start"]
