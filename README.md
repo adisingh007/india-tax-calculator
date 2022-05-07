@@ -1,4 +1,4 @@
-This app calculates taxes in India!  
+This app calculates taxes in India! (Not considering deductions right now. Just flat tax!)  
   
 To build, just run:  
   
