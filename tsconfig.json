@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+      "outDir": "target/",
+      "esModuleInterop": true,
+      "skipLibCheck": true
+    }
+}
