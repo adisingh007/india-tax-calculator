@@ -1,7 +1,5 @@
 This app calculates taxes in India!  
 ###### NOTE: Not considering deductions right now. Just flat tax!  
-  
-Powered by Travis CI!  
 
 USING DOCKER-COMPOSE:  
 =====================  
