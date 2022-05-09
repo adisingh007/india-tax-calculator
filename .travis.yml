@@ -3,6 +3,7 @@ node_js:
   - '16.13.1'
 script:
   - npm install
+  - npm install typescript
   - npm run clean
   - npm run compile
   - npm test
