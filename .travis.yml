@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - '16.13.1'
 install:
+  - npm install typescript # I wish I didn't have to do this. Any alternative?
   - npm install
-  - npm install --save-dev typescript # I wish I didn't have to do this. Any alternative?
   - npm run compile
 script:
   - npm test
