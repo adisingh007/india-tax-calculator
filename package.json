@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node target/src/index.js",
     "test": "jest",
-    "compile": "npx tsc",
+    "compile": "tsc",
     "clean": "rimraf target",
     "just-test": "npm run clean && npm run compile && npm test"
   },
