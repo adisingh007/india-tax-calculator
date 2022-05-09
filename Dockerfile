@@ -1,9 +1,7 @@
 FROM ubuntu
 
-# Copy only source code, tsconfig.json and package.json files
-COPY ts/ /opt/taxy/ts/
-COPY package.json /opt/taxy/package.json
-COPY tsconfig.json /opt/taxy/tsconfig.json
+# Copy all files to /opt/taxy
+COPY . /opt/taxy
 WORKDIR /opt/taxy
 
 # Install npm
@@ -16,9 +14,7 @@ RUN npm run clean
 RUN npm run compile
 RUN npm test
 
-# Removed all other files as we only want package.json and compiled Javascript files
-RUN rm -rf ts/
-RUN rm tsconfig.json
+# Remove all node_modules
 RUN rm -rf node_modules/
 
 # Install only prod dependencies

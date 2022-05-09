@@ -1,2 +1,7 @@
 target/
 node_modules/
+.gitignore
+.travis.yml
+docker-compose.yaml
+Dockerfile
+README.md
