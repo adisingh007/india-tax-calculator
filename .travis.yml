@@ -1,9 +1,10 @@
 language: node_js
 node_js:
   - '16.13.1'
-script:
+install:
   - npm install
   - npm install typescript
   - npm run clean
   - npm run compile
+script:
   - npm test
