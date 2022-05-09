@@ -4,8 +4,6 @@ node_js:
 install:
   - npm install
   - npm install --save-dev typescript # I wish I didn't have to do this. Any alternative?
-  - npm run clean
-  - ls node_modules
   - npm run compile
 script:
   - npm test
