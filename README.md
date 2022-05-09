@@ -1,4 +1,4 @@
-This app calculates taxes in India!  
+This app calculates taxes in India!  It is a simple app that takes the amount of money you want to tax and returns the amount of taxes you will pay.  
 ###### NOTE: Not considering deductions right now. Just flat tax!  
   
 USING DOCKER-COMPOSE:  
